@@ -48,6 +48,7 @@ namespace Vista
             aux = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
             Detalle fr = new Detalle(aux);
             fr.ShowDialog();
+            CargaDatos();
 
         }
         //Carga todos los datos de la base de datos en la datagrid
