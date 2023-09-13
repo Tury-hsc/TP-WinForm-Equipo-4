@@ -10,10 +10,10 @@ namespace Negocio
 {
     public class ArticuloNegocio
     {
+            AccesoDatos datos = new AccesoDatos();
         public List<Articulo> listar ()
         {
             List<Articulo> lista = new List<Articulo>();
-            AccesoDatos datos = new AccesoDatos();
 
             try
             {
@@ -59,6 +59,16 @@ namespace Negocio
                 datos.cerrarConexion();
             }
 
+        }
+
+        public void Eliminar(int id)
+        {
+            datos.setConsulta("Delete from Articulos where id = @id");
+            datos.setParametro("id", id);
+            datos.ejecutarLectura();
+            datos.comando.Parameters.Clear();
+            datos.cerrarConexion();
+            
         }
 
     }

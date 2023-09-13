@@ -22,11 +22,7 @@ namespace Vista
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio art = new ArticuloNegocio();
-            listArticulo = art.listar();
-            dgvArticulo.DataSource = listArticulo;
-            dgvArticulo.Columns["imagenURL"].Visible = false;   // OCULTA LA COLUMNA.
-            cargarImagen(listArticulo[0].imagenURL);
+            CargaDatos();
         }
         
         private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
@@ -53,6 +49,34 @@ namespace Vista
             Detalle fr = new Detalle(aux);
             fr.ShowDialog();
 
+        }
+
+        private void CargaDatos()
+        {
+            ArticuloNegocio art = new ArticuloNegocio();
+            listArticulo = art.listar();
+            dgvArticulo.DataSource = listArticulo;
+            dgvArticulo.Columns["imagenURL"].Visible = false;   // OCULTA LA COLUMNA.
+            cargarImagen(listArticulo[0].imagenURL);
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+             ArticuloNegocio datos = new ArticuloNegocio();
+            Articulo aux = new Articulo();
+            aux = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+            DialogResult res;
+            res = MessageBox.Show("Desea eliminar este articulo? \n" +  aux.descripcion.ToString(), "Cuidado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if(res == DialogResult.Yes)
+            {
+                datos.Eliminar(aux.ID);
+                CargaDatos();
+                
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }
