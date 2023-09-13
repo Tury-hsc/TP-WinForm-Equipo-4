@@ -60,7 +60,7 @@ namespace Negocio
             }
 
         }
-
+        //Elimina fisicamente un articulo en la base de datos
         public void Eliminar(int id)
         {
             datos.setConsulta("Delete from Articulos where id = @id");

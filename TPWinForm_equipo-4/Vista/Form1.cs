@@ -50,7 +50,7 @@ namespace Vista
             fr.ShowDialog();
 
         }
-
+        //Carga todos los datos de la base de datos en la datagrid
         private void CargaDatos()
         {
             ArticuloNegocio art = new ArticuloNegocio();
@@ -60,6 +60,7 @@ namespace Vista
             cargarImagen(listArticulo[0].imagenURL);
         }
 
+        //Elimina el articulo seleccionado (fila) en la Datagrid
         private void btnEliminar_Click(object sender, EventArgs e)
         {
              ArticuloNegocio datos = new ArticuloNegocio();

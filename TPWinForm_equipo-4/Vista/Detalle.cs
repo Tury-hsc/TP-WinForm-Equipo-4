@@ -36,7 +36,9 @@ namespace Vista
             txtNombre.Text = aux.nombre.ToString();
             txtprecio.Text = aux.precio.ToString();
             txtDescripcion.Text = aux.descripcion.ToString();  
-           txtMarca.Text = aux.marca.descripcion.ToString();
+            txtMarca.Text = aux.marca.descripcion.ToString();
+            txtid.Text = aux.ID.ToString();
+           
         }
 
     }
