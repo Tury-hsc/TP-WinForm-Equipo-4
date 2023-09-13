@@ -45,6 +45,14 @@ namespace Vista
                 pbxArticulo.Load("https://sferaone.es/wp-content/uploads/2023/02/placeholder-1.png");
             }
         }
-        
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Articulo aux = new Articulo();
+            aux = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+            Detalle fr = new Detalle(aux);
+            fr.ShowDialog();
+
+        }
     }
 }
