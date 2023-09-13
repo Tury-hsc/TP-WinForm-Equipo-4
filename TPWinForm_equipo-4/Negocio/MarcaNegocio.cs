@@ -13,11 +13,12 @@ namespace Negocio
         public List<Marca> listar()
         {
             List<Marca> lista = new List<Marca>();
-            Marca aux = new Marca();
-            datos.setConsulta("select * from MARCAS");
+            
+            datos.setConsulta("select id,Descripcion from MARCAS");
             datos.ejecutarLectura();
             while (datos.Lector.Read())
             {
+                Marca aux = new Marca();
                 aux.ID = (int)datos.Lector["Id"];
                 aux.descripcion = (string)datos.Lector["Descripcion"];
 

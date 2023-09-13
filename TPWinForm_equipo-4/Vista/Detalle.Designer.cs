@@ -41,7 +41,8 @@
             this.txtid = new System.Windows.Forms.TextBox();
             this.lblCategoria = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxMarca = new System.Windows.Forms.ComboBox();
+            this.btnmodificar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -150,20 +151,31 @@
             this.textBox1.Size = new System.Drawing.Size(270, 22);
             this.textBox1.TabIndex = 13;
             // 
-            // comboBox1
+            // cbxMarca
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(111, 268);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(270, 24);
-            this.comboBox1.TabIndex = 14;
+            this.cbxMarca.FormattingEnabled = true;
+            this.cbxMarca.Location = new System.Drawing.Point(111, 268);
+            this.cbxMarca.Name = "cbxMarca";
+            this.cbxMarca.Size = new System.Drawing.Size(270, 24);
+            this.cbxMarca.TabIndex = 14;
+            // 
+            // btnmodificar
+            // 
+            this.btnmodificar.Location = new System.Drawing.Point(183, 383);
+            this.btnmodificar.Name = "btnmodificar";
+            this.btnmodificar.Size = new System.Drawing.Size(112, 53);
+            this.btnmodificar.TabIndex = 15;
+            this.btnmodificar.Text = "Modificar";
+            this.btnmodificar.UseVisualStyleBackColor = true;
+            this.btnmodificar.Click += new System.EventHandler(this.btnmodificar_Click);
             // 
             // Detalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(494, 461);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.btnmodificar);
+            this.Controls.Add(this.cbxMarca);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblCategoria);
             this.Controls.Add(this.txtid);
@@ -200,6 +212,7 @@
         private System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.Label lblCategoria;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxMarca;
+        private System.Windows.Forms.Button btnmodificar;
     }
 }

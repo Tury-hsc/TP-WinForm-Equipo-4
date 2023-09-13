@@ -53,6 +53,7 @@ namespace Vista
         //Carga todos los datos de la base de datos en la datagrid
         private void CargaDatos()
         {
+            dgvArticulo.DataSource = null;
             ArticuloNegocio art = new ArticuloNegocio();
             listArticulo = art.listar();
             dgvArticulo.DataSource = listArticulo;

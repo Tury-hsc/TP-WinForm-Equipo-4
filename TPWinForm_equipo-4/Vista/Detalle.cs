@@ -14,6 +14,8 @@ namespace Vista
 {
     public partial class Detalle : Form
     {
+        private MarcaNegocio MarNeg = new MarcaNegocio();
+        private ArticuloNegocio ArtNeg =    new ArticuloNegocio();
         public Detalle()
         {
             InitializeComponent();
@@ -32,14 +34,31 @@ namespace Vista
 
         private void CargaDatos(Articulo aux)
         {
+            
             txtCodigo.Text = aux.codigo.ToString();
             txtNombre.Text = aux.nombre.ToString();
             txtprecio.Text = aux.precio.ToString();
-            txtDescripcion.Text = aux.descripcion.ToString();  
-            txtMarca.Text = aux.marca.descripcion.ToString();
+            txtDescripcion.Text = aux.descripcion.ToString();             
             txtid.Text = aux.ID.ToString();
+            cbxMarca.DataSource = MarNeg.listar();
+            cbxMarca.ValueMember = "Id";
+            cbxMarca.DisplayMember = "Descripcion";
            
         }
 
+        private void btnmodificar_Click(object sender, EventArgs e)
+        {   
+            Articulo aux = new Articulo();
+            aux.codigo = txtCodigo.Text;
+            aux.nombre = txtNombre.Text;
+            aux.precio = Convert.ToDecimal(txtprecio.Text);
+            aux.descripcion = txtDescripcion.Text;
+            aux.ID = Convert.ToInt32(txtid.Text);
+
+            ArtNeg.Modificar(aux);
+            MessageBox.Show("Modificado exitosamente");
+            Close();
+
+        }
     }
 }
