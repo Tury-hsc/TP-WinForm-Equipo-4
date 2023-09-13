@@ -38,9 +38,12 @@
             // 
             // dgvArticulo
             // 
+            this.dgvArticulo.AllowUserToResizeRows = false;
+            this.dgvArticulo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvArticulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulo.Location = new System.Drawing.Point(16, 156);
             this.dgvArticulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvArticulo.MultiSelect = false;
             this.dgvArticulo.Name = "dgvArticulo";
             this.dgvArticulo.RowHeadersWidth = 51;
             this.dgvArticulo.Size = new System.Drawing.Size(969, 555);

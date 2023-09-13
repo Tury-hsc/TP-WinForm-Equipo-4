@@ -66,7 +66,7 @@ namespace Vista
             Articulo aux = new Articulo();
             aux = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
             DialogResult res;
-            res = MessageBox.Show("Desea eliminar este articulo? \n" +  aux.descripcion.ToString(), "Cuidado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            res = MessageBox.Show("Desea eliminar este articulo? \n \t" +  aux.descripcion.ToString(), "Cuidado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if(res == DialogResult.Yes)
             {
                 datos.Eliminar(aux.ID);
