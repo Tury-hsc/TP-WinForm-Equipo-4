@@ -17,7 +17,7 @@ namespace Negocio
 
             try
             {
-                string consulta = "SELECT Id, Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio FROM ARTICULOS";
+                string consulta = "select A.Id, A.Codigo, A.Nombre, A.Descripcion, A.IdMarca, M.Descripcion Marca, A.IdCategoria, C.Descripcion Categoria, A.Precio, I.Id, I.IdArticulo, I.ImagenUrl from ARTICULOS A, CATEGORIAS C, MARCAS M, IMAGENES I WHERE A.IdCategoria = C.Id AND A.IdMarca = M.Id AND A.Id = i.IdArticulo";
 
                 datos.setConsulta(consulta);
                 datos.ejecutarLectura();
@@ -29,10 +29,19 @@ namespace Negocio
                     aux.codigo = (string)datos.Lector["Codigo"];
                     aux.nombre = (string)datos.Lector["Nombre"];
                     aux.descripcion = (string)datos.Lector["Descripcion"];
-                    //aux.marca = 
+
+                    // MARCA 
+                    aux.marca = new Marca();
+                    aux.marca.ID = (int)datos.Lector["IdMarca"];
+                    aux.marca.descripcion = (string)datos.Lector["MARCA"];
+
                     //aux.categoria =
+                    aux.categoria = new Categoria();
+                    aux.categoria.ID = (int)datos.Lector["IdCategoria"];
+                    aux.categoria.descripcion = (string)datos.Lector["CATEGORIA"];
+
                     aux.precio = (decimal)datos.Lector["Precio"];
-                    //aux.imagenURL = (string)datos.Lector["Descripcion"];
+                    aux.imagenURL = (string)datos.Lector["ImagenUrl"];
 
                     lista.Add(aux);
                 }

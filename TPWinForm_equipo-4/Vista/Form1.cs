@@ -25,6 +25,26 @@ namespace Vista
             ArticuloNegocio art = new ArticuloNegocio();
             listArticulo = art.listar();
             dgvArticulo.DataSource = listArticulo;
+            dgvArticulo.Columns["imagenURL"].Visible = false;   // OCULTA LA COLUMNA.
+            cargarImagen(listArticulo[0].imagenURL);
         }
+        
+        private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
+        {
+            Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+            cargarImagen(seleccionado.imagenURL);
+        }
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbxArticulo.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                pbxArticulo.Load("https://sferaone.es/wp-content/uploads/2023/02/placeholder-1.png");
+            }
+        }
+        
     }
 }
