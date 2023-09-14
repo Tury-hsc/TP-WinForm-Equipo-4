@@ -81,5 +81,29 @@ namespace Vista
                 return;
             }
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+            string filtro = textBox1.Text;
+
+            if (filtro.Length >= 3)
+            {
+                listaFiltrada = listArticulo.FindAll(x => x.nombre.ToUpper().Contains(filtro.ToUpper()) || x.marca.descripcion.ToUpper().Contains(filtro.ToUpper()));
+            }
+            else
+            {
+                listaFiltrada = listArticulo;
+            }
+
+            dgvArticulo.DataSource = null;
+            dgvArticulo.DataSource = listaFiltrada;
+            
+        }
+        private void ocultarColumnas()
+        {
+            dgvArticulo.Columns["imagenURL"].Visible = false;
+            dgvArticulo.Columns["ID"].Visible = false;
+        }
     }
 }
