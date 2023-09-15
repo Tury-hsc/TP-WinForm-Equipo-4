@@ -84,7 +84,8 @@ namespace Vista
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            Detalle agregar = new Detalle();
+            agregar.ShowDialog();
         }
     }
 }

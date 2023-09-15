@@ -82,5 +82,34 @@ namespace Negocio
 
 
         }
+
+        public void agregar(Articulo nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setConsulta("insert into ARTICULOS(Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) VALUES(@codigo,@nombre,@descripcion,@idMarca,@idCategoria,@precio)");
+
+                datos.setParametro("@codigo", nuevo.codigo);
+                datos.setParametro("@nombre", nuevo.nombre);
+                datos.setParametro("@descripcion", nuevo.descripcion);
+                datos.setParametro("@idMarca", nuevo.marca.ID);
+                datos.setParametro("@idCategoria", nuevo.categoria.ID);
+                datos.setParametro("@precio", nuevo.precio);
+
+                datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally 
+            { 
+                datos.cerrarConexion();
+            }
+        }
     }
 }

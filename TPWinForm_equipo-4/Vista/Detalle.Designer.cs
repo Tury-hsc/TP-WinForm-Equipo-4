@@ -43,12 +43,13 @@
             this.cbxMarca = new System.Windows.Forms.ComboBox();
             this.btnmodificar = new System.Windows.Forms.Button();
             this.cbxCategoria = new System.Windows.Forms.ComboBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(83, 63);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(204, 20);
             this.txtNombre.TabIndex = 0;
@@ -56,7 +57,7 @@
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(83, 98);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(2);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(204, 20);
             this.txtCodigo.TabIndex = 1;
@@ -64,7 +65,7 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(83, 135);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(204, 20);
             this.txtDescripcion.TabIndex = 2;
@@ -72,7 +73,7 @@
             // txtprecio
             // 
             this.txtprecio.Location = new System.Drawing.Point(83, 176);
-            this.txtprecio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtprecio.Margin = new System.Windows.Forms.Padding(2);
             this.txtprecio.Name = "txtprecio";
             this.txtprecio.Size = new System.Drawing.Size(204, 20);
             this.txtprecio.TabIndex = 3;
@@ -140,7 +141,7 @@
             // txtid
             // 
             this.txtid.Location = new System.Drawing.Point(83, 33);
-            this.txtid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtid.Margin = new System.Windows.Forms.Padding(2);
             this.txtid.Name = "txtid";
             this.txtid.ReadOnly = true;
             this.txtid.Size = new System.Drawing.Size(204, 20);
@@ -161,7 +162,7 @@
             this.cbxMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxMarca.FormattingEnabled = true;
             this.cbxMarca.Location = new System.Drawing.Point(83, 218);
-            this.cbxMarca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxMarca.Margin = new System.Windows.Forms.Padding(2);
             this.cbxMarca.Name = "cbxMarca";
             this.cbxMarca.Size = new System.Drawing.Size(204, 21);
             this.cbxMarca.TabIndex = 14;
@@ -169,7 +170,7 @@
             // btnmodificar
             // 
             this.btnmodificar.Location = new System.Drawing.Point(137, 311);
-            this.btnmodificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnmodificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnmodificar.Name = "btnmodificar";
             this.btnmodificar.Size = new System.Drawing.Size(84, 43);
             this.btnmodificar.TabIndex = 15;
@@ -186,11 +187,22 @@
             this.cbxCategoria.Size = new System.Drawing.Size(204, 21);
             this.cbxCategoria.TabIndex = 16;
             // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Location = new System.Drawing.Point(38, 313);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(94, 39);
+            this.btnGuardar.TabIndex = 17;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
             // Detalle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(370, 375);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.cbxCategoria);
             this.Controls.Add(this.btnmodificar);
             this.Controls.Add(this.cbxMarca);
@@ -206,7 +218,7 @@
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.txtNombre);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Detalle";
             this.Text = "Detalle";
             this.Load += new System.EventHandler(this.Detalle_Load);
@@ -232,5 +244,6 @@
         private System.Windows.Forms.ComboBox cbxMarca;
         private System.Windows.Forms.Button btnmodificar;
         private System.Windows.Forms.ComboBox cbxCategoria;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }
