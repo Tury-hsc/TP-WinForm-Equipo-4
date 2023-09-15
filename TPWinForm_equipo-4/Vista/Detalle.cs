@@ -16,6 +16,7 @@ namespace Vista
     {
         private MarcaNegocio MarNeg = new MarcaNegocio();
         private ArticuloNegocio ArtNeg =    new ArticuloNegocio();
+        private CategoriaNegocio CatNeg = new CategoriaNegocio();
         public Detalle()
         {
             InitializeComponent();
@@ -43,7 +44,11 @@ namespace Vista
             cbxMarca.DataSource = MarNeg.listar();
             cbxMarca.ValueMember = "Id";
             cbxMarca.DisplayMember = "Descripcion";
-           
+
+            cbxCategoria.DataSource = CatNeg.listar();
+            cbxCategoria.ValueMember = "ID";
+            cbxCategoria.DisplayMember = "Descripcion";
+
         }
 
         private void btnmodificar_Click(object sender, EventArgs e)
