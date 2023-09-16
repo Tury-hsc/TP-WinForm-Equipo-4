@@ -99,18 +99,28 @@ namespace Vista
 
             dgvArticulo.DataSource = null;
             dgvArticulo.DataSource = listaFiltrada;
-            
+
         }
-        private void ocultarColumnas()
-        {
-            dgvArticulo.Columns["imagenURL"].Visible = false;
-            dgvArticulo.Columns["ID"].Visible = false;
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Detalle agregar = new Detalle();
             agregar.ShowDialog();
-
+            CargaDatos();
         }
+        /*
+private void ocultarColumnas()
+{
+   dgvArticulo.Columns["imagenURL"].Visible = false;
+   dgvArticulo.Columns["ID"].Visible = false;
+
+   private void btnAgregar_Click(object sender, EventArgs e)
+   {
+       Detalle agregar = new Detalle();
+       agregar.ShowDialog();
+
+   }
+}
+*/
     }
 }
