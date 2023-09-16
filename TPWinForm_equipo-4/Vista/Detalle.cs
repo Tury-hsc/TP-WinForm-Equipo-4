@@ -16,6 +16,7 @@ namespace Vista
     {
         private MarcaNegocio MarNeg = new MarcaNegocio();
         private ArticuloNegocio ArtNeg =    new ArticuloNegocio();
+        private CategoriaNegocio CatNeg = new CategoriaNegocio();
         public Detalle()
         {
             InitializeComponent();
@@ -29,6 +30,13 @@ namespace Vista
 
         private void Detalle_Load(object sender, EventArgs e)
         {
+            cbxMarca.DataSource = MarNeg.listar();
+            cbxMarca.ValueMember = "Id";
+            cbxMarca.DisplayMember = "Descripcion";
+
+            cbxCategoria.DataSource = CatNeg.listar();
+            cbxCategoria.ValueMember = "ID";
+            cbxCategoria.DisplayMember = "Descripcion";
 
         }
 
@@ -43,11 +51,16 @@ namespace Vista
             cbxMarca.DataSource = MarNeg.listar();
             cbxMarca.ValueMember = "Id";
             cbxMarca.DisplayMember = "Descripcion";
-           
+
+            cbxCategoria.DataSource = CatNeg.listar();
+            cbxCategoria.ValueMember = "ID";
+            cbxCategoria.DisplayMember = "Descripcion";
+
         }
 
         private void btnmodificar_Click(object sender, EventArgs e)
         {   
+            
             Articulo aux = new Articulo();
             aux.codigo = txtCodigo.Text;
             aux.nombre = txtNombre.Text;
@@ -59,6 +72,35 @@ namespace Vista
             MessageBox.Show("Modificado exitosamente");
             Close();
 
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            Articulo aux = new Articulo();
+            ArticuloNegocio negocio = new ArticuloNegocio();
+
+            try
+            {
+                aux.codigo = txtCodigo.Text;
+                aux.nombre = txtNombre.Text;
+                aux.descripcion = txtDescripcion.Text;
+                aux.marca = (Marca)cbxMarca.SelectedItem;
+                aux.categoria = (Categoria)cbxCategoria.SelectedItem;
+                aux.precio = decimal.Parse(txtprecio.Text);
+
+                //falta imagen 
+                //aux.imagenURL;
+
+                negocio.agregar(aux);
+                MessageBox.Show(" AGREGADOO ");
+                Close ();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

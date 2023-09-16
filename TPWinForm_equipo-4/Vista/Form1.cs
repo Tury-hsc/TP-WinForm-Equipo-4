@@ -24,7 +24,7 @@ namespace Vista
         {
             CargaDatos();
         }
-        
+
         private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
         {
             Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
@@ -65,22 +65,23 @@ namespace Vista
         //Elimina el articulo seleccionado (fila) en la Datagrid
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-             ArticuloNegocio datos = new ArticuloNegocio();
+            ArticuloNegocio datos = new ArticuloNegocio();
             Articulo aux = new Articulo();
             aux = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
             DialogResult res;
-            res = MessageBox.Show("Desea eliminar este articulo? \n \t" +  aux.descripcion.ToString(), "Cuidado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if(res == DialogResult.Yes)
+            res = MessageBox.Show("Desea eliminar este articulo? \n \t" + aux.descripcion.ToString(), "Cuidado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (res == DialogResult.Yes)
             {
                 datos.Eliminar(aux.ID);
                 CargaDatos();
-                
+
             }
             else
             {
                 return;
             }
         }
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -104,6 +105,12 @@ namespace Vista
         {
             dgvArticulo.Columns["imagenURL"].Visible = false;
             dgvArticulo.Columns["ID"].Visible = false;
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Detalle agregar = new Detalle();
+            agregar.ShowDialog();
+
         }
     }
 }
