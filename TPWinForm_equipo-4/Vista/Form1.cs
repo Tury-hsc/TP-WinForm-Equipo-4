@@ -113,12 +113,14 @@ namespace Vista
         {
             frmCategorias cat = new frmCategorias(false);
             cat.ShowDialog();
+            CargaDatos();
         }
 
         private void btnMarcas_Click(object sender, EventArgs e)
         {
             frmCategorias mar = new frmCategorias(true);
             mar.ShowDialog();
+            CargaDatos();
         }
     }
 }
