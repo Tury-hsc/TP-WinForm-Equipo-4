@@ -76,12 +76,21 @@ namespace Negocio
 
         }
 
+
+
         public void Modificar(Articulo art)
         {
-            datos.setConsulta("update ARTICULOS set nombre = @nombre where id=@id");
+            datos.setConsulta("update ARTICULOS set nombre = @nombre, codigo=@codigo, precio=@precio, descripcion=@descripcion, idMarca=@IdMarca,IdCategoria=@IdCategoria where id=@id");
             datos.setParametro("nombre", art.nombre);
+            datos.setParametro("codigo", art.codigo);
+            datos.setParametro("precio", art.precio);
+            datos.setParametro("descripcion", art.descripcion);
+            datos.setParametro("IdMarca", art.marca.ID);
+            datos.setParametro("IdCategoria", art.categoria.ID);
+            //datos.setParametro("urlimagen", art.imagenURL);
             datos.setParametro("id", art.ID);
-            datos.ejecutarLectura();
+           
+            datos.ejecutarAccion();
             datos.cerrarConexion();
 
 

@@ -46,7 +46,7 @@ namespace Vista
         {
             Articulo aux = new Articulo();
             aux = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
-            Detalle fr = new Detalle(aux);
+            Detalle fr = new Detalle(aux, false);
             fr.ShowDialog();
             CargaDatos();
 
@@ -58,7 +58,7 @@ namespace Vista
             ArticuloNegocio art = new ArticuloNegocio();
             listArticulo = art.listar();
             dgvArticulo.DataSource = listArticulo;
-            dgvArticulo.Columns["imagenURL"].Visible = false;   // OCULTA LA COLUMNA.
+            dgvArticulo.Columns[7].Visible = false;   // OCULTA LA COLUMNA.
             cargarImagen(listArticulo[0].imagenURL);
         }
 
@@ -104,7 +104,8 @@ namespace Vista
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Detalle agregar = new Detalle();
+            Articulo nuevo = new Articulo();
+            Detalle agregar = new Detalle(nuevo, true);
             agregar.ShowDialog();
             CargaDatos();
         }

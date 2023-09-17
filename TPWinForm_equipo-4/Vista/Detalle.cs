@@ -22,10 +22,18 @@ namespace Vista
             InitializeComponent();
         }
 
-        public Detalle(Articulo aux)
+        public Detalle(Articulo aux, bool mod)
         {
             InitializeComponent();
+            if (mod == false)
+            {
+                btnGuardar.Visible = false;
             CargaDatos(aux);
+            }
+            else
+            {
+                btnmodificar.Visible = false;
+            }
         }
 
         private void Detalle_Load(object sender, EventArgs e)
@@ -61,12 +69,17 @@ namespace Vista
         private void btnmodificar_Click(object sender, EventArgs e)
         {   
             
+            
             Articulo aux = new Articulo();
             aux.codigo = txtCodigo.Text;
             aux.nombre = txtNombre.Text;
             aux.precio = Convert.ToDecimal(txtprecio.Text);
             aux.descripcion = txtDescripcion.Text;
             aux.ID = Convert.ToInt32(txtid.Text);
+            aux.marca = (Marca)cbxMarca.SelectedItem;
+            aux.marca.ID =Convert.ToInt32(cbxMarca.SelectedValue);
+            aux.categoria = (Categoria)cbxCategoria.SelectedItem;
+            aux.categoria.ID = Convert.ToInt32(cbxCategoria.SelectedValue);
 
             ArtNeg.Modificar(aux);
             MessageBox.Show("Modificado exitosamente");
