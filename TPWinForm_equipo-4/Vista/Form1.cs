@@ -111,8 +111,14 @@ namespace Vista
 
         private void btnCategorias_Click(object sender, EventArgs e)
         {
-            frmCategorias cat = new frmCategorias();
+            frmCategorias cat = new frmCategorias(false);
             cat.ShowDialog();
+        }
+
+        private void btnMarcas_Click(object sender, EventArgs e)
+        {
+            frmCategorias mar = new frmCategorias(true);
+            mar.ShowDialog();
         }
     }
 }

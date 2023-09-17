@@ -132,6 +132,7 @@
             this.btnMarcas.TabIndex = 7;
             this.btnMarcas.Text = "Marcas";
             this.btnMarcas.UseVisualStyleBackColor = true;
+            this.btnMarcas.Click += new System.EventHandler(this.btnMarcas_Click);
             // 
             // Form1
             // 
