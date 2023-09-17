@@ -42,7 +42,7 @@ namespace Vista
                 aux.descripcion = txtCategoria.Text;
 
                 negocioCat.agregar(aux);
-                MessageBox.Show(" AGREGAADO ");
+                MessageBox.Show(" AGREGADO ");
                 cargarDatos();
 
             }
@@ -63,7 +63,7 @@ namespace Vista
             {
                 aux = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
                 negocio.eliminar(aux.ID);
-                MessageBox.Show("ELIMINADO ");
+                MessageBox.Show(" ELIMINADO ");
                 cargarDatos();
 
             }
