@@ -9,10 +9,10 @@ namespace Negocio
 {
     public class CategoriaNegocio
     {
+        AccesoDatos datos = new AccesoDatos();
         public List<Categoria> listar()
         {
             List<Categoria> lista = new List<Categoria>();
-            AccesoDatos datos = new AccesoDatos();
 
             try
             {
@@ -41,5 +41,42 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+        public void agregar(Categoria cat)
+        {
+            try
+            {
+                datos.setConsulta("INSERT INTO CATEGORIAS (Descripcion) VALUES (@descripcion)");
+                datos.setParametro("@descripcion", cat.descripcion);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public void eliminar(int id)
+        {
+            try
+            {
+                datos.setConsulta("DELETE FROM CATEGORIAS WHERE ID = @ID");
+                datos.setParametro("@ID", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
     }
 }

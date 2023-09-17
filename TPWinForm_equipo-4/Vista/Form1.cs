@@ -108,18 +108,24 @@ namespace Vista
             agregar.ShowDialog();
             CargaDatos();
         }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            frmCategorias cat = new frmCategorias();
+            cat.ShowDialog();
+        }
         /*
 private void ocultarColumnas()
 {
-   dgvArticulo.Columns["imagenURL"].Visible = false;
-   dgvArticulo.Columns["ID"].Visible = false;
+dgvArticulo.Columns["imagenURL"].Visible = false;
+dgvArticulo.Columns["ID"].Visible = false;
 
-   private void btnAgregar_Click(object sender, EventArgs e)
-   {
-       Detalle agregar = new Detalle();
-       agregar.ShowDialog();
+private void btnAgregar_Click(object sender, EventArgs e)
+{
+Detalle agregar = new Detalle();
+agregar.ShowDialog();
 
-   }
+}
 }
 */
     }

@@ -92,7 +92,7 @@ namespace Vista
                 //aux.imagenURL;
 
                 negocio.agregar(aux);
-                MessageBox.Show(" AGREGADOO ");
+                MessageBox.Show(" AGREGADO ");
                 Close ();
 
             }

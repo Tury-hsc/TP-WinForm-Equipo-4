@@ -11,9 +11,9 @@ namespace Negocio
 {
     public class ArticuloNegocio
     {
-            AccesoDatos datos = new AccesoDatos();
-            List<Articulo> lista = new List<Articulo>();
-        public List<Articulo> listar ()
+        AccesoDatos datos = new AccesoDatos();
+        List<Articulo> lista = new List<Articulo>();
+        public List<Articulo> listar()
         {
 
             try
@@ -73,7 +73,7 @@ namespace Negocio
             datos.ejecutarLectura();
             datos.comando.Parameters.Clear();
             datos.cerrarConexion();
-            
+
         }
 
         public void Modificar(Articulo art)
@@ -110,8 +110,8 @@ namespace Negocio
 
                 throw ex;
             }
-            finally 
-            { 
+            finally
+            {
                 datos.cerrarConexion();
             }
         }
