@@ -48,47 +48,55 @@ namespace Vista
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (marca == true)
+            if (string.IsNullOrEmpty(txtCategoria.Text))
             {
-                Marca auxMarca = new Marca();
-                MarcaNegocio negocioMarca = new MarcaNegocio();
-
-                try
-                {
-                    auxMarca.descripcion = txtCategoria.Text;  // En este caso contiene una marca, cambiar el nombre de la LBL.
-
-                    negocioMarca.agregar(auxMarca);
-                    MessageBox.Show(" MARCA AGREGADO ");
-                    cargarDatos();
-
-                }
-                catch (Exception ex)
-                {
-
-                    throw ex;
-                }
+                MessageBox.Show("Agregue la descripcion por favor");
+                return;
             }
             else
             {
-
-                Categoria aux = new Categoria();
-                CategoriaNegocio negocioCat = new CategoriaNegocio();
-
-                try
+                if (marca == true)
                 {
-                    aux.descripcion = txtCategoria.Text;
+                    Marca auxMarca = new Marca();
+                    MarcaNegocio negocioMarca = new MarcaNegocio();
 
-                    negocioCat.agregar(aux);
-                    MessageBox.Show(" AGREGADO ");
-                    cargarDatos();
+                    try
+                    {
+                        auxMarca.descripcion = txtCategoria.Text;  // En este caso contiene una marca, cambiar el nombre de la LBL.
+
+                        negocioMarca.agregar(auxMarca);
+                        MessageBox.Show(" MARCA AGREGADO ");
+                        cargarDatos();
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        throw ex;
+                    }
+                }
+                else
+                {
+
+                    Categoria aux = new Categoria();
+                    CategoriaNegocio negocioCat = new CategoriaNegocio();
+
+                    try
+                    {
+                        aux.descripcion = txtCategoria.Text;
+
+                        negocioCat.agregar(aux);
+                        MessageBox.Show(" AGREGADO ");
+                        cargarDatos();
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        throw ex;
+                    }
 
                 }
-                catch (Exception ex)
-                {
-
-                    throw ex;
-                }
-
             }
         }
 

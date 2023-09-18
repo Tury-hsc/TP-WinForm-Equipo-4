@@ -46,7 +46,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(65, 294);
+            this.btnAgregar.Location = new System.Drawing.Point(79, 293);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(114, 47);
             this.btnAgregar.TabIndex = 1;
@@ -73,7 +73,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(183, 294);
+            this.btnEliminar.Location = new System.Drawing.Point(265, 294);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(113, 46);
             this.btnEliminar.TabIndex = 4;
@@ -85,7 +85,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(445, 380);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.txtCategoria);
             this.Controls.Add(this.lblCategoria);
