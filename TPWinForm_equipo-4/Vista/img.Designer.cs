@@ -108,6 +108,7 @@
             this.Controls.Add(this.lblUrl);
             this.Controls.Add(this.txtimg);
             this.Name = "img";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Imagen";
             this.Load += new System.EventHandler(this.Imagen_Load);
             this.ResumeLayout(false);

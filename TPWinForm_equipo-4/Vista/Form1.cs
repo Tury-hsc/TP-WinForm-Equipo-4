@@ -181,7 +181,7 @@ namespace Vista
             }
             else
             {
-                MessageBox.Show("NO MAS IMAGENES");
+                MessageBox.Show("EL ARTICULO NO POSEE MAS IMAGENES CARGADAS");
                 return;
             }
         }
