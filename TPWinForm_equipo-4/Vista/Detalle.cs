@@ -94,12 +94,55 @@ namespace Vista
 
             try
             {
+                if (string.IsNullOrEmpty(txtCodigo.Text))
+                {
+                    MessageBox.Show("Ingrese Codigo");
+                    txtCodigo.Select();
+                    return;
+                }
+                else
+                {
                 aux.codigo = txtCodigo.Text;
-                aux.nombre = txtNombre.Text;
-                aux.descripcion = txtDescripcion.Text;
+
+                }
+                if (string.IsNullOrEmpty(txtNombre.Text))
+                {
+                    MessageBox.Show("Ingrese Nombre");
+                    txtNombre.Select();
+                    return;
+                }
+                else
+                {
+                    aux.nombre = txtCodigo.Text;
+
+                }
+                if (string.IsNullOrEmpty(txtDescripcion.Text))
+                {
+                    MessageBox.Show("Ingrese Descripcion");
+                    txtDescripcion.Select();
+                    return;
+                }
+                else
+                {
+                    aux.descripcion = txtDescripcion.Text;
+
+                }
+                if (string.IsNullOrEmpty(txtprecio.Text))
+                {
+                    MessageBox.Show("Ingrese Precio");
+                    txtprecio.Select();
+                    return;
+                }
+                else
+                {
+                    aux.precio = decimal.Parse(txtprecio.Text);
+
+                }
+
+
                 aux.marca = (Marca)cbxMarca.SelectedItem;
                 aux.categoria = (Categoria)cbxCategoria.SelectedItem;
-                aux.precio = decimal.Parse(txtprecio.Text);
+                
 
                 //falta imagen 
                 //aux.imagenURL;
