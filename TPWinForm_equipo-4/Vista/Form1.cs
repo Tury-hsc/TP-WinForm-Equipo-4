@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,8 +15,6 @@ namespace Vista
     public partial class Form1 : Form
     {
         private List<Articulo> listArticulo;
-        private List<Imagen> listaImganes;
-        private int img = 0;
         public Form1()
         {
             InitializeComponent();
@@ -26,7 +23,6 @@ namespace Vista
         private void Form1_Load(object sender, EventArgs e)
         {
             CargaDatos();
-
             cboCampo.Items.Add("Número");
             cboCampo.Items.Add("Nombre");
             cboCampo.Items.Add("Descripción");
@@ -34,12 +30,11 @@ namespace Vista
             cboCriterio.Items.Add("Menor a");
         }
 
-
+        private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
+        {
+            Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+            cargarImagen(seleccionado.imagenURL);
         }
-
-
-
-        //Faltan botones para reccorer imagenes
         private void cargarImagen(string imagen)
         {
             try
@@ -64,15 +59,12 @@ namespace Vista
         //Carga todos los datos de la base de datos en la datagrid
         private void CargaDatos()
         {
-
             dgvArticulo.DataSource = null;
-            ImagenNegocio imgNeg = new ImagenNegocio();
             ArticuloNegocio art = new ArticuloNegocio();
             listArticulo = art.listar();
-            listaImganes = imgNeg.listar(1);
             dgvArticulo.DataSource = listArticulo;
             dgvArticulo.Columns[7].Visible = false;   // OCULTA LA COLUMNA.
-                                                      //  cargarImagen(listaImganes[0].url);
+            cargarImagen(listArticulo[0].imagenURL);
         }
 
         //Elimina el articulo seleccionado (fila) en la Datagrid
@@ -200,62 +192,6 @@ namespace Vista
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-            }
-
-        private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
-        {
-
-            ImagenNegocio imgNeg = new ImagenNegocio();
-            Articulo aux = new Articulo();
-            aux = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
-            img = 0;
-            listaImganes = imgNeg.listar(aux.ID);
-            if (listaImganes.Count > 0)
-            {
-                cargarImagen(listaImganes[0].url);
-
-
-            }
-            else
-            {
-                cargarImagen("");
-            }
-            if (listaImganes.Count >= 2)
-            {
-                btnSiguiente.Visible = true;
-            }
-            else
-            {
-                btnSiguiente.Visible = false;
-
-            }
-
-
-        }
-
-        private void btnAgregarImg_Click(object sender, EventArgs e)
-        {
-            Articulo aux = new Articulo();
-            aux = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
-            img fr = new img(aux);
-            fr.ShowDialog();
-        }
-
-
-
-        private void btnSiguiente_Click(object sender, EventArgs e)
-        {
-            int largo = listaImganes.Count();
-            
-            img = img + 1;
-            if (img < largo)
-            {
-                cargarImagen(listaImganes[img].url);
-            }
-            else
-            {
-                MessageBox.Show("EL ARTICULO NO POSEE MAS IMAGENES CARGADAS");
-                return;
             }
 
         }
