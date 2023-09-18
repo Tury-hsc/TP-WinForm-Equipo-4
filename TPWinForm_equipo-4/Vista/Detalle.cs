@@ -199,5 +199,14 @@ namespace Vista
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void txtprecio_Validating(object sender, CancelEventArgs e)
+        {
+            if(!decimal.TryParse(txtprecio.Text, out decimal result))
+            {
+                MessageBox.Show("INGRESE NUMERO VALIDO");
+                e.Cancel = true;
+            }
+        }
     }
 }
