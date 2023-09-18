@@ -169,10 +169,10 @@
             // 
             // btnmodificar
             // 
-            this.btnmodificar.Location = new System.Drawing.Point(137, 311);
+            this.btnmodificar.Location = new System.Drawing.Point(136, 313);
             this.btnmodificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnmodificar.Name = "btnmodificar";
-            this.btnmodificar.Size = new System.Drawing.Size(84, 43);
+            this.btnmodificar.Size = new System.Drawing.Size(94, 39);
             this.btnmodificar.TabIndex = 15;
             this.btnmodificar.Text = "Modificar";
             this.btnmodificar.UseVisualStyleBackColor = true;
@@ -189,7 +189,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(38, 313);
+            this.btnGuardar.Location = new System.Drawing.Point(136, 313);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(94, 39);
             this.btnGuardar.TabIndex = 17;
@@ -220,6 +220,7 @@
             this.Controls.Add(this.txtNombre);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Detalle";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detalle";
             this.Load += new System.EventHandler(this.Detalle_Load);
             this.ResumeLayout(false);

@@ -11,9 +11,9 @@ namespace Negocio
 {
     public class ArticuloNegocio
     {
-            AccesoDatos datos = new AccesoDatos();
-            List<Articulo> lista = new List<Articulo>();
-        public List<Articulo> listar ()
+        AccesoDatos datos = new AccesoDatos();
+        List<Articulo> lista = new List<Articulo>();
+        public List<Articulo> listar()
         {
 
             try
@@ -73,15 +73,24 @@ namespace Negocio
             datos.ejecutarLectura();
             datos.comando.Parameters.Clear();
             datos.cerrarConexion();
-            
+
         }
+
+
 
         public void Modificar(Articulo art)
         {
-            datos.setConsulta("update ARTICULOS set nombre = @nombre where id=@id");
+            datos.setConsulta("update ARTICULOS set nombre = @nombre, codigo=@codigo, precio=@precio, descripcion=@descripcion, idMarca=@IdMarca,IdCategoria=@IdCategoria where id=@id");
             datos.setParametro("nombre", art.nombre);
+            datos.setParametro("codigo", art.codigo);
+            datos.setParametro("precio", art.precio);
+            datos.setParametro("descripcion", art.descripcion);
+            datos.setParametro("IdMarca", art.marca.ID);
+            datos.setParametro("IdCategoria", art.categoria.ID);
+            //datos.setParametro("urlimagen", art.imagenURL);
             datos.setParametro("id", art.ID);
-            datos.ejecutarLectura();
+           
+            datos.ejecutarAccion();
             datos.cerrarConexion();
 
 
@@ -110,8 +119,8 @@ namespace Negocio
 
                 throw ex;
             }
-            finally 
-            { 
+            finally
+            {
                 datos.cerrarConexion();
             }
         }
