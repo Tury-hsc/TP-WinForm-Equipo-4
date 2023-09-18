@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace Vista
     {
         private List<Articulo> listArticulo;
         private List<Imagen> listaImganes;
+        private int img = 0;
         public Form1()
         {
             InitializeComponent();
@@ -24,6 +26,7 @@ namespace Vista
         private void Form1_Load(object sender, EventArgs e)
         {
             CargaDatos();
+
         }
 
 
@@ -53,7 +56,7 @@ namespace Vista
         //Carga todos los datos de la base de datos en la datagrid
         private void CargaDatos()
         {
-            
+
             dgvArticulo.DataSource = null;
             ImagenNegocio imgNeg = new ImagenNegocio();
             ArticuloNegocio art = new ArticuloNegocio();
@@ -61,7 +64,7 @@ namespace Vista
             listaImganes = imgNeg.listar(1);
             dgvArticulo.DataSource = listArticulo;
             dgvArticulo.Columns[7].Visible = false;   // OCULTA LA COLUMNA.
-          //  cargarImagen(listaImganes[0].url);
+                                                      //  cargarImagen(listaImganes[0].url);
         }
 
         //Elimina el articulo seleccionado (fila) en la Datagrid
@@ -128,14 +131,33 @@ namespace Vista
 
         private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
         {
+
             ImagenNegocio imgNeg = new ImagenNegocio();
             Articulo aux = new Articulo();
             aux = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+            img = 0;
             listaImganes = imgNeg.listar(aux.ID);
             if (listaImganes.Count > 0)
             {
                 cargarImagen(listaImganes[0].url);
+
+
             }
+            else
+            {
+                cargarImagen("");
+            }
+            if (listaImganes.Count >= 2)
+            {
+                btnSiguiente.Visible = true;
+            }
+            else
+            {
+                btnSiguiente.Visible = false;
+
+            }
+
+
         }
 
         private void btnAgregarImg_Click(object sender, EventArgs e)
@@ -144,6 +166,24 @@ namespace Vista
             aux = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
             img fr = new img(aux);
             fr.ShowDialog();
+        }
+
+
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            int largo = listaImganes.Count();
+            
+            img = img + 1;
+            if (img < largo)
+            {
+                cargarImagen(listaImganes[img].url);
+            }
+            else
+            {
+                MessageBox.Show("NO MAS IMAGENES");
+                return;
+            }
         }
     }
 }

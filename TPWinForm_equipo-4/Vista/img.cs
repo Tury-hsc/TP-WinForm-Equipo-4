@@ -45,6 +45,8 @@ namespace Vista
             else
             {
                 imgNeg.AgregarImagen(txtimg.Text, Convert.ToInt32(txtID.Text));
+                MessageBox.Show("IMAGEN AGREGADA");
+                this.Close();
             }
         }
     }
