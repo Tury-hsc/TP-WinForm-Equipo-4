@@ -103,18 +103,18 @@ namespace Vista
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+                List<int> lista = new List<int>();  
             if (marca == true)
             {
-                List<int> lista = new List<int>();  
                 Marca auxMarca = new Marca();
                 MarcaNegocio negocioMarca = new MarcaNegocio();
-                lista = artneg.ListarCategoriasActivas();
-                    auxMarca = (Marca)dgvCategorias.CurrentRow.DataBoundItem;
+                lista = artneg.ListarMarcasActivas();
+                auxMarca = (Marca)dgvCategorias.CurrentRow.DataBoundItem;
                foreach(int i in lista)
                 {
                     if(i == auxMarca.ID)
                     {
-                        MessageBox.Show("NO SE PUEDE ELIMINAR UANA CATEGORIA EN USO");
+                        MessageBox.Show("NO SE PUEDE ELIMINAR UNA MARCA EN USO");
                         return;
                     }
 
@@ -137,10 +137,20 @@ namespace Vista
             {
                 Categoria aux = new Categoria();
                 CategoriaNegocio negocio = new CategoriaNegocio();
+                lista = artneg.ListarCategoriasActivas();
+                aux = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
+                foreach (int i in lista)
+                {
+                    if (i == aux.ID)
+                    {
+                        MessageBox.Show("NO SE PUEDE ELIMINAR UNA CATEGORIA EN USO");
+                        return;
+                    }
+                }
+                
 
                 try
                 {
-                    aux = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
                     negocio.eliminar(aux.ID);
                     MessageBox.Show(" ELIMINADO ");
                     cargarDatos();
