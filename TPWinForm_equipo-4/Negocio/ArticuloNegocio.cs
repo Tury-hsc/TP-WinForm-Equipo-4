@@ -18,7 +18,9 @@ namespace Negocio
 
             try
             {
-                string consulta = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, A.IdMarca, M.Descripcion Marca, A.IdCategoria, C.Descripcion Categoria, A.Precio, I.Id, I.IdArticulo, I.ImagenUrl  FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS AS C ON A.IdCategoria = C.Id LEFT JOIN IMAGENES AS I ON A.Id = I.IdArticulo";
+                string consulta = "SELECT a.Id, a.Codigo, a.Nombre, a.Descripcion, a.precio, a.IdMarca, a.IdCategoria, m.Descripcion Marca, c.Descripcion Categoria from ARTICULOS A " +
+                    "Inner Join Marcas as m on A.IdMarca = M.Id " +
+                    "Inner Join CATEGORIAS as c on A.IdCategoria = C.Id";
 
                 datos.setConsulta(consulta);
                 datos.ejecutarLectura();
@@ -43,10 +45,6 @@ namespace Negocio
 
                     aux.precio = (decimal)datos.Lector["Precio"];
 
-                    if (!(datos.Lector["ImagenUrl"] is DBNull))
-                    {
-                        aux.imagenURL = (string)datos.Lector["ImagenUrl"];
-                    }
 
                     lista.Add(aux);
                 }

@@ -59,7 +59,7 @@ namespace Vista
             listArticulo = art.listar();
             dgvArticulo.DataSource = listArticulo;
             dgvArticulo.Columns[7].Visible = false;   // OCULTA LA COLUMNA.
-            cargarImagen(listArticulo[0].imagenURL);
+           // cargarImagen(listArticulo[0].imagenURL);
         }
 
         //Elimina el articulo seleccionado (fila) en la Datagrid
