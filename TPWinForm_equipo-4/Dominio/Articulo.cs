@@ -18,4 +18,5 @@ namespace Dominio
         public string imagenURL { get; set; }
 
     }
+
 }

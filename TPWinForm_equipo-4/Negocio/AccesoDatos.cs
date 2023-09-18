@@ -61,6 +61,11 @@ namespace Negocio
             }
         }
 
+        public void setearConsulta(string consulta)
+        {
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = consulta;
+        }
         public void cerrarConexion()
         {
             if (lector != null)
