@@ -37,6 +37,7 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnCategorias = new System.Windows.Forms.Button();
             this.btnMarcas = new System.Windows.Forms.Button();
+            this.btnAgregarImg = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.SuspendLayout();
@@ -46,30 +47,32 @@
             this.dgvArticulo.AllowUserToResizeRows = false;
             this.dgvArticulo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvArticulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticulo.Location = new System.Drawing.Point(12, 127);
+            this.dgvArticulo.Location = new System.Drawing.Point(16, 156);
+            this.dgvArticulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvArticulo.MultiSelect = false;
             this.dgvArticulo.Name = "dgvArticulo";
             this.dgvArticulo.RowHeadersWidth = 51;
             this.dgvArticulo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulo.Size = new System.Drawing.Size(727, 451);
+            this.dgvArticulo.Size = new System.Drawing.Size(969, 555);
             this.dgvArticulo.TabIndex = 0;
             this.dgvArticulo.SelectionChanged += new System.EventHandler(this.dgvArticulo_SelectionChanged);
             // 
             // pbxArticulo
             // 
-            this.pbxArticulo.Location = new System.Drawing.Point(775, 127);
+            this.pbxArticulo.Location = new System.Drawing.Point(1033, 156);
+            this.pbxArticulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbxArticulo.Name = "pbxArticulo";
-            this.pbxArticulo.Size = new System.Drawing.Size(373, 270);
+            this.pbxArticulo.Size = new System.Drawing.Size(497, 332);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxArticulo.TabIndex = 1;
             this.pbxArticulo.TabStop = false;
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(106, 623);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnModificar.Location = new System.Drawing.Point(141, 767);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(80, 39);
+            this.btnModificar.Size = new System.Drawing.Size(107, 48);
             this.btnModificar.TabIndex = 2;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
@@ -79,10 +82,10 @@
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.OrangeRed;
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminar.Location = new System.Drawing.Point(190, 623);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEliminar.Location = new System.Drawing.Point(253, 767);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(80, 39);
+            this.btnEliminar.Size = new System.Drawing.Size(107, 48);
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -90,26 +93,29 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(97, 101);
+            this.textBox1.Location = new System.Drawing.Point(129, 124);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(166, 20);
+            this.textBox1.Size = new System.Drawing.Size(220, 22);
             this.textBox1.TabIndex = 4;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 104);
+            this.label1.Location = new System.Drawing.Point(29, 128);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.Size = new System.Drawing.Size(87, 16);
             this.label1.TabIndex = 5;
             this.label1.Text = "Filtro Rapido:";
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(12, 623);
+            this.btnAgregar.Location = new System.Drawing.Point(16, 767);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(90, 38);
+            this.btnAgregar.Size = new System.Drawing.Size(120, 47);
             this.btnAgregar.TabIndex = 4;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -117,9 +123,10 @@
             // 
             // btnCategorias
             // 
-            this.btnCategorias.Location = new System.Drawing.Point(525, 624);
+            this.btnCategorias.Location = new System.Drawing.Point(700, 768);
+            this.btnCategorias.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCategorias.Name = "btnCategorias";
-            this.btnCategorias.Size = new System.Drawing.Size(105, 38);
+            this.btnCategorias.Size = new System.Drawing.Size(140, 47);
             this.btnCategorias.TabIndex = 6;
             this.btnCategorias.Text = "Categorias";
             this.btnCategorias.UseVisualStyleBackColor = true;
@@ -127,19 +134,31 @@
             // 
             // btnMarcas
             // 
-            this.btnMarcas.Location = new System.Drawing.Point(636, 623);
+            this.btnMarcas.Location = new System.Drawing.Point(848, 767);
+            this.btnMarcas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMarcas.Name = "btnMarcas";
-            this.btnMarcas.Size = new System.Drawing.Size(102, 38);
+            this.btnMarcas.Size = new System.Drawing.Size(136, 47);
             this.btnMarcas.TabIndex = 7;
             this.btnMarcas.Text = "Marcas";
             this.btnMarcas.UseVisualStyleBackColor = true;
             this.btnMarcas.Click += new System.EventHandler(this.btnMarcas_Click);
             // 
+            // btnAgregarImg
+            // 
+            this.btnAgregarImg.Location = new System.Drawing.Point(1033, 516);
+            this.btnAgregarImg.Name = "btnAgregarImg";
+            this.btnAgregarImg.Size = new System.Drawing.Size(162, 39);
+            this.btnAgregarImg.TabIndex = 8;
+            this.btnAgregarImg.Text = "Agregar imagen";
+            this.btnAgregarImg.UseVisualStyleBackColor = true;
+            this.btnAgregarImg.Click += new System.EventHandler(this.btnAgregarImg_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1170, 685);
+            this.ClientSize = new System.Drawing.Size(1560, 843);
+            this.Controls.Add(this.btnAgregarImg);
             this.Controls.Add(this.btnMarcas);
             this.Controls.Add(this.btnCategorias);
             this.Controls.Add(this.label1);
@@ -149,6 +168,7 @@
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.pbxArticulo);
             this.Controls.Add(this.dgvArticulo);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -172,6 +192,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnCategorias;
         private System.Windows.Forms.Button btnMarcas;
+        private System.Windows.Forms.Button btnAgregarImg;
     }
 }
 

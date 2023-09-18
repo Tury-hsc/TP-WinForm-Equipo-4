@@ -44,5 +44,16 @@ namespace Negocio
             }
 
         }
+
+        public void AgregarImagen(string IMG, int idArt)
+        {
+            datos.setConsulta("insert into IMAGENES(IdArticulo, ImagenUrl) VALUES(@IdArt, @Img)");
+            datos.setParametro("@IdArt", idArt);
+            datos.setParametro("@Img", IMG);
+            datos.ejecutarAccion();
+            datos.comando.Parameters.Clear();
+            datos.cerrarConexion();
+
+        }
     }
 }

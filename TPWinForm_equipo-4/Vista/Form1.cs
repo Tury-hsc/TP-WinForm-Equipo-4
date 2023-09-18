@@ -134,5 +134,13 @@ namespace Vista
             listaImganes = imgNeg.listar(aux.ID);
             cargarImagen(listaImganes[0].url);
         }
+
+        private void btnAgregarImg_Click(object sender, EventArgs e)
+        {
+            Articulo aux = new Articulo();
+            aux = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+            img fr = new img(aux);
+            fr.ShowDialog();
+        }
     }
 }
