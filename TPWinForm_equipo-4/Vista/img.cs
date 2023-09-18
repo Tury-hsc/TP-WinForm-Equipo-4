@@ -37,7 +37,15 @@ namespace Vista
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            imgNeg.AgregarImagen(txtimg.Text, Convert.ToInt32(txtID.Text));
+            if (string.IsNullOrEmpty(txtimg.Text))
+            {
+                MessageBox.Show("AGREGUE URL");
+                return;
+            }
+            else
+            {
+                imgNeg.AgregarImagen(txtimg.Text, Convert.ToInt32(txtID.Text));
+            }
         }
     }
 }

@@ -39,7 +39,7 @@
             // 
             // txtimg
             // 
-            this.txtimg.Location = new System.Drawing.Point(87, 122);
+            this.txtimg.Location = new System.Drawing.Point(129, 128);
             this.txtimg.Name = "txtimg";
             this.txtimg.Size = new System.Drawing.Size(296, 22);
             this.txtimg.TabIndex = 0;
@@ -47,7 +47,7 @@
             // lblUrl
             // 
             this.lblUrl.AutoSize = true;
-            this.lblUrl.Location = new System.Drawing.Point(30, 128);
+            this.lblUrl.Location = new System.Drawing.Point(86, 131);
             this.lblUrl.Name = "lblUrl";
             this.lblUrl.Size = new System.Drawing.Size(37, 16);
             this.lblUrl.TabIndex = 1;
@@ -55,14 +55,14 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(87, 29);
+            this.txtID.Location = new System.Drawing.Point(129, 29);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(296, 22);
             this.txtID.TabIndex = 2;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(87, 76);
+            this.txtNombre.Location = new System.Drawing.Point(129, 76);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(296, 22);
             this.txtNombre.TabIndex = 3;
@@ -72,14 +72,14 @@
             this.LBLid.AutoSize = true;
             this.LBLid.Location = new System.Drawing.Point(30, 35);
             this.LBLid.Name = "LBLid";
-            this.LBLid.Size = new System.Drawing.Size(23, 16);
+            this.LBLid.Size = new System.Drawing.Size(93, 16);
             this.LBLid.TabIndex = 4;
-            this.LBLid.Text = "ID:";
+            this.LBLid.Text = "ID ARTICULO:";
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(-2, 79);
+            this.lblNombre.Location = new System.Drawing.Point(54, 82);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(69, 16);
             this.lblNombre.TabIndex = 5;
@@ -87,9 +87,9 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(130, 238);
+            this.btnAgregar.Location = new System.Drawing.Point(129, 197);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(169, 29);
+            this.btnAgregar.Size = new System.Drawing.Size(169, 39);
             this.btnAgregar.TabIndex = 6;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -99,7 +99,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 450);
+            this.ClientSize = new System.Drawing.Size(467, 283);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.LBLid);
