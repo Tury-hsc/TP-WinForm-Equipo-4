@@ -16,6 +16,7 @@ namespace Vista
     {
         private List<Categoria> listaCategoria;
         private List<Marca> listaMarca;
+        private ArticuloNegocio artneg = new ArticuloNegocio();
         private bool marca = false;
         public frmCategorias(bool marca)
         {
@@ -104,12 +105,23 @@ namespace Vista
         {
             if (marca == true)
             {
+                List<int> lista = new List<int>();  
                 Marca auxMarca = new Marca();
                 MarcaNegocio negocioMarca = new MarcaNegocio();
+                lista = artneg.ListarCategoriasActivas();
+                    auxMarca = (Marca)dgvCategorias.CurrentRow.DataBoundItem;
+               foreach(int i in lista)
+                {
+                    if(i == auxMarca.ID)
+                    {
+                        MessageBox.Show("NO SE PUEDE ELIMINAR UANA CATEGORIA EN USO");
+                        return;
+                    }
+
+                }
 
                 try
                 {
-                    auxMarca = (Marca)dgvCategorias.CurrentRow.DataBoundItem;
                     negocioMarca.eliminar(auxMarca.ID);
                     MessageBox.Show(" MARCA ELIMINADA ");
                     cargarDatos();

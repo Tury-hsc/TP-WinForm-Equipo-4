@@ -74,6 +74,21 @@ namespace Negocio
 
         }
 
+        public List<int> ListarCategoriasActivas()
+        {
+            List<int> listaCat = new List<int>();
+            datos.setConsulta("select distinct a.IdCategoria from ARTICULOS a");
+            datos.ejecutarLectura();
+            while (datos.Lector.Read())
+            {
+                int aux = new int();
+                aux = (int)datos.Lector["IdCategoria"];
+                listaCat.Add(aux);
+
+            }
+            datos.cerrarConexion();
+            return listaCat;
+        }
 
 
         public void Modificar(Articulo art)
