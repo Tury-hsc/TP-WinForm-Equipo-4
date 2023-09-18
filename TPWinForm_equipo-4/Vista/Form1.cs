@@ -132,7 +132,10 @@ namespace Vista
             Articulo aux = new Articulo();
             aux = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
             listaImganes = imgNeg.listar(aux.ID);
-            cargarImagen(listaImganes[0].url);
+            if (listaImganes.Count > 0)
+            {
+                cargarImagen(listaImganes[0].url);
+            }
         }
 
         private void btnAgregarImg_Click(object sender, EventArgs e)

@@ -82,7 +82,7 @@
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.OrangeRed;
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnEliminar.Location = new System.Drawing.Point(253, 767);
+            this.btnEliminar.Location = new System.Drawing.Point(367, 768);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(107, 48);
@@ -145,9 +145,9 @@
             // 
             // btnAgregarImg
             // 
-            this.btnAgregarImg.Location = new System.Drawing.Point(1033, 516);
+            this.btnAgregarImg.Location = new System.Drawing.Point(254, 768);
             this.btnAgregarImg.Name = "btnAgregarImg";
-            this.btnAgregarImg.Size = new System.Drawing.Size(162, 39);
+            this.btnAgregarImg.Size = new System.Drawing.Size(107, 48);
             this.btnAgregarImg.TabIndex = 8;
             this.btnAgregarImg.Text = "Agregar imagen";
             this.btnAgregarImg.UseVisualStyleBackColor = true;
