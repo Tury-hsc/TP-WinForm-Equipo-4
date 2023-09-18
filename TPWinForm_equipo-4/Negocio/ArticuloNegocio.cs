@@ -18,7 +18,9 @@ namespace Negocio
 
             try
             {
-                string consulta = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, A.IdMarca, M.Descripcion Marca, A.IdCategoria, C.Descripcion Categoria, A.Precio, I.Id, I.IdArticulo, I.ImagenUrl  FROM ARTICULOS A INNER JOIN MARCAS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS AS C ON A.IdCategoria = C.Id LEFT JOIN IMAGENES AS I ON A.Id = I.IdArticulo";
+                string consulta = "SELECT a.Id, a.Codigo, a.Nombre, a.Descripcion, a.precio, a.IdMarca, a.IdCategoria, m.Descripcion Marca, c.Descripcion Categoria from ARTICULOS A " +
+                    "Inner Join Marcas as m on A.IdMarca = M.Id " +
+                    "Inner Join CATEGORIAS as c on A.IdCategoria = C.Id";
 
                 datos.setConsulta(consulta);
                 datos.ejecutarLectura();
@@ -43,10 +45,6 @@ namespace Negocio
 
                     aux.precio = (decimal)datos.Lector["Precio"];
 
-                    if (!(datos.Lector["ImagenUrl"] is DBNull))
-                    {
-                        aux.imagenURL = (string)datos.Lector["ImagenUrl"];
-                    }
 
                     lista.Add(aux);
                 }
@@ -74,6 +72,38 @@ namespace Negocio
             datos.comando.Parameters.Clear();
             datos.cerrarConexion();
 
+        }
+
+        public List<int> ListarMarcasActivas()
+        {
+            List<int> listaCat = new List<int>();
+            datos.setConsulta("select distinct a.IdMarca from ARTICULOS a");
+            datos.ejecutarLectura();
+            while (datos.Lector.Read())
+            {
+                int aux = new int();
+                aux = (int)datos.Lector["IdMarca"];
+                listaCat.Add(aux);
+
+            }
+            datos.cerrarConexion();
+            return listaCat;
+        }
+
+        public List<int> ListarCategoriasActivas()
+        {
+            List<int> listaCat = new List<int>();
+            datos.setConsulta("select distinct a.IdCategoria from ARTICULOS a");
+            datos.ejecutarLectura();
+            while (datos.Lector.Read())
+            {
+                int aux = new int();
+                aux = (int)datos.Lector["IdCategoria"];
+                listaCat.Add(aux);
+
+            }
+            datos.cerrarConexion();
+            return listaCat;
         }
 
 

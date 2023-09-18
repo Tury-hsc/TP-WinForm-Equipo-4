@@ -71,11 +71,52 @@ namespace Vista
             
             
             Articulo aux = new Articulo();
-            aux.codigo = txtCodigo.Text;
-            aux.nombre = txtNombre.Text;
-            aux.precio = Convert.ToDecimal(txtprecio.Text);
-            aux.descripcion = txtDescripcion.Text;
-            aux.ID = Convert.ToInt32(txtid.Text);
+
+            if (string.IsNullOrEmpty(txtCodigo.Text))
+            {
+                MessageBox.Show("Ingrese Codigo");
+                txtCodigo.Select();
+                return;
+            }
+            else
+            {
+                aux.codigo = txtCodigo.Text;
+
+            }
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                MessageBox.Show("Ingrese Nombre");
+                txtNombre.Select();
+                return;
+            }
+            else
+            {
+                aux.nombre = txtCodigo.Text;
+
+            }
+            if (string.IsNullOrEmpty(txtDescripcion.Text))
+            {
+                MessageBox.Show("Ingrese Descripcion");
+                txtDescripcion.Select();
+                return;
+            }
+            else
+            {
+                aux.descripcion = txtDescripcion.Text;
+
+            }
+            if (string.IsNullOrEmpty(txtprecio.Text))
+            {
+                MessageBox.Show("Ingrese Precio");
+                txtprecio.Select();
+                return;
+            }
+            else
+            {
+                aux.precio = decimal.Parse(txtprecio.Text);
+
+            }
+
             aux.marca = (Marca)cbxMarca.SelectedItem;
             aux.marca.ID =Convert.ToInt32(cbxMarca.SelectedValue);
             aux.categoria = (Categoria)cbxCategoria.SelectedItem;
@@ -94,12 +135,55 @@ namespace Vista
 
             try
             {
+                if (string.IsNullOrEmpty(txtCodigo.Text))
+                {
+                    MessageBox.Show("Ingrese Codigo");
+                    txtCodigo.Select();
+                    return;
+                }
+                else
+                {
                 aux.codigo = txtCodigo.Text;
-                aux.nombre = txtNombre.Text;
-                aux.descripcion = txtDescripcion.Text;
+
+                }
+                if (string.IsNullOrEmpty(txtNombre.Text))
+                {
+                    MessageBox.Show("Ingrese Nombre");
+                    txtNombre.Select();
+                    return;
+                }
+                else
+                {
+                    aux.nombre = txtCodigo.Text;
+
+                }
+                if (string.IsNullOrEmpty(txtDescripcion.Text))
+                {
+                    MessageBox.Show("Ingrese Descripcion");
+                    txtDescripcion.Select();
+                    return;
+                }
+                else
+                {
+                    aux.descripcion = txtDescripcion.Text;
+
+                }
+                if (string.IsNullOrEmpty(txtprecio.Text))
+                {
+                    MessageBox.Show("Ingrese Precio");
+                    txtprecio.Select();
+                    return;
+                }
+                else
+                {
+                    aux.precio = decimal.Parse(txtprecio.Text);
+
+                }
+
+
                 aux.marca = (Marca)cbxMarca.SelectedItem;
                 aux.categoria = (Categoria)cbxCategoria.SelectedItem;
-                aux.precio = decimal.Parse(txtprecio.Text);
+                
 
                 //falta imagen 
                 //aux.imagenURL;
@@ -113,6 +197,15 @@ namespace Vista
             {
 
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void txtprecio_Validating(object sender, CancelEventArgs e)
+        {
+            if(!decimal.TryParse(txtprecio.Text, out decimal result))
+            {
+                MessageBox.Show("INGRESE NUMERO VALIDO");
+                e.Cancel = true;
             }
         }
     }

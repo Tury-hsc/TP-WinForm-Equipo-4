@@ -16,6 +16,7 @@ namespace Vista
     {
         private List<Categoria> listaCategoria;
         private List<Marca> listaMarca;
+        private ArticuloNegocio artneg = new ArticuloNegocio();
         private bool marca = false;
         public frmCategorias(bool marca)
         {
@@ -48,60 +49,79 @@ namespace Vista
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (marca == true)
+            if (string.IsNullOrEmpty(txtCategoria.Text))
             {
-                Marca auxMarca = new Marca();
-                MarcaNegocio negocioMarca = new MarcaNegocio();
-
-                try
-                {
-                    auxMarca.descripcion = txtCategoria.Text;  // En este caso contiene una marca, cambiar el nombre de la LBL.
-
-                    negocioMarca.agregar(auxMarca);
-                    MessageBox.Show(" MARCA AGREGADO ");
-                    cargarDatos();
-
-                }
-                catch (Exception ex)
-                {
-
-                    throw ex;
-                }
+                MessageBox.Show("Agregue la descripcion por favor");
+                return;
             }
             else
             {
-
-                Categoria aux = new Categoria();
-                CategoriaNegocio negocioCat = new CategoriaNegocio();
-
-                try
+                if (marca == true)
                 {
-                    aux.descripcion = txtCategoria.Text;
+                    Marca auxMarca = new Marca();
+                    MarcaNegocio negocioMarca = new MarcaNegocio();
 
-                    negocioCat.agregar(aux);
-                    MessageBox.Show(" AGREGADO ");
-                    cargarDatos();
+                    try
+                    {
+                        auxMarca.descripcion = txtCategoria.Text;  // En este caso contiene una marca, cambiar el nombre de la LBL.
+
+                        negocioMarca.agregar(auxMarca);
+                        MessageBox.Show(" MARCA AGREGADO ");
+                        cargarDatos();
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        throw ex;
+                    }
+                }
+                else
+                {
+
+                    Categoria aux = new Categoria();
+                    CategoriaNegocio negocioCat = new CategoriaNegocio();
+
+                    try
+                    {
+                        aux.descripcion = txtCategoria.Text;
+
+                        negocioCat.agregar(aux);
+                        MessageBox.Show(" AGREGADO ");
+                        cargarDatos();
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        throw ex;
+                    }
 
                 }
-                catch (Exception ex)
-                {
-
-                    throw ex;
-                }
-
             }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+                List<int> lista = new List<int>();  
             if (marca == true)
             {
                 Marca auxMarca = new Marca();
                 MarcaNegocio negocioMarca = new MarcaNegocio();
+                lista = artneg.ListarMarcasActivas();
+                auxMarca = (Marca)dgvCategorias.CurrentRow.DataBoundItem;
+               foreach(int i in lista)
+                {
+                    if(i == auxMarca.ID)
+                    {
+                        MessageBox.Show("NO SE PUEDE ELIMINAR UNA MARCA EN USO");
+                        return;
+                    }
+
+                }
 
                 try
                 {
-                    auxMarca = (Marca)dgvCategorias.CurrentRow.DataBoundItem;
                     negocioMarca.eliminar(auxMarca.ID);
                     MessageBox.Show(" MARCA ELIMINADA ");
                     cargarDatos();
@@ -117,10 +137,20 @@ namespace Vista
             {
                 Categoria aux = new Categoria();
                 CategoriaNegocio negocio = new CategoriaNegocio();
+                lista = artneg.ListarCategoriasActivas();
+                aux = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
+                foreach (int i in lista)
+                {
+                    if (i == aux.ID)
+                    {
+                        MessageBox.Show("NO SE PUEDE ELIMINAR UNA CATEGORIA EN USO");
+                        return;
+                    }
+                }
+                
 
                 try
                 {
-                    aux = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
                     negocio.eliminar(aux.ID);
                     MessageBox.Show(" ELIMINADO ");
                     cargarDatos();
