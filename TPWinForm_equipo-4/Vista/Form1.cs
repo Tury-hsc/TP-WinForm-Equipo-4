@@ -15,6 +15,7 @@ namespace Vista
     public partial class Form1 : Form
     {
         private List<Articulo> listArticulo;
+        private List<Imagen> listaImganes;
         public Form1()
         {
             InitializeComponent();
@@ -25,11 +26,9 @@ namespace Vista
             CargaDatos();
         }
 
-        private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
-        {
-            Articulo seleccionado = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
-            cargarImagen(seleccionado.imagenURL);
-        }
+
+
+        //Faltan botones para reccorer imagenes
         private void cargarImagen(string imagen)
         {
             try
@@ -54,12 +53,15 @@ namespace Vista
         //Carga todos los datos de la base de datos en la datagrid
         private void CargaDatos()
         {
+            
             dgvArticulo.DataSource = null;
+            ImagenNegocio imgNeg = new ImagenNegocio();
             ArticuloNegocio art = new ArticuloNegocio();
             listArticulo = art.listar();
+            listaImganes = imgNeg.listar(1);
             dgvArticulo.DataSource = listArticulo;
             dgvArticulo.Columns[7].Visible = false;   // OCULTA LA COLUMNA.
-           // cargarImagen(listArticulo[0].imagenURL);
+          //  cargarImagen(listaImganes[0].url);
         }
 
         //Elimina el articulo seleccionado (fila) en la Datagrid
@@ -122,6 +124,15 @@ namespace Vista
             frmCategorias mar = new frmCategorias(true);
             mar.ShowDialog();
             CargaDatos();
+        }
+
+        private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
+        {
+            ImagenNegocio imgNeg = new ImagenNegocio();
+            Articulo aux = new Articulo();
+            aux = (Articulo)dgvArticulo.CurrentRow.DataBoundItem;
+            listaImganes = imgNeg.listar(aux.ID);
+            cargarImagen(listaImganes[0].url);
         }
     }
 }
